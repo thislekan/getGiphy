@@ -8,12 +8,13 @@ const Tile = ({ data: { title, images, id } }: ITile): JSX.Element => {
   const condition1 = idFromRoute === id;
   const condition2 = pathname !== '/';
   // covering bases
-  const eitherofTheStillImages = images['fixed_height_small_still']?.url || images['fixed_width_small_still']?.url || images['fixed_height_still']?.url;
-  const imageOrGif = condition1 && condition2 ? images['original']?.webp : eitherofTheStillImages;
+  const eitherOfTheseStillImages = images['fixed_height_small_still']?.url || images['fixed_width_small_still']?.url || images['fixed_height_still']?.url;
+  
+  const imageOrGif = condition1 && condition2 ? images['original']?.webp : eitherOfTheseStillImages;
 
   const redirectTo = () => {
     if (idFromRoute) return;
-    !idFromRoute && navigate(`/${id}`);
+    navigate(`/${id}`);
   }
 
   const sizeInMB = () => {
