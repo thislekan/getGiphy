@@ -1,0 +1,47 @@
+.board {
+  overflow: hidden;
+  &__container {
+    height: 100%;
+    overflow: hidden;
+    padding: $mobile 5rem;
+
+    @media screen and (min-width: 550px) {
+      &__search {
+        display: flex;
+        justify-content: end;
+      }
+    }
+
+    @media screen and (min-width: 650px) {
+      padding: $tablet;
+      &__tiles {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      &__tiles {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      &__tiles {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      &__search {
+        padding: 0 10rem;
+      }
+      &__tiles {
+        padding: 2rem 10rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
