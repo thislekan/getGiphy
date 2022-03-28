@@ -43,9 +43,10 @@ const Board = (): JSX.Element => {
     if (isSearch) {
       hasMore && setHasMore(false);
       page.current = 0;
+      setSearchResult([])
     }
 
-    const encoded = encodeURIComponent(searchTerm)
+    const encoded = encodeURIComponent(searchTerm.trim())
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${env.API_KEY}&q=${encoded}&offset=${page.current}&limit=20`;
 
     const data = await apiCall(url);

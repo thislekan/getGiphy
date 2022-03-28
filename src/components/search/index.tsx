@@ -21,8 +21,9 @@ const Search = ({searchData, setIsSearch, setSearchTerm, searchTerm = ''}: ISear
 
   const handleInput = (e: any) => {
     const {value} = e.target;
-    setSearchTerm(value.trim());
+    setSearchTerm(value);
     value.trim() && isSubmitted && setIsSubmitted(false);
+
     if (!value.trim()) {
       setIsSearch(false)
       setSearchTerm('')
